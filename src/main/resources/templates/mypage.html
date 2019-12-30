@@ -1,0 +1,44 @@
+<div th:include="parts/header"></div>
+
+<div th:include="parts/menu"></div>
+
+<table th:object="${user}" class="info">
+	<tr>
+		<td class="item">社員名</td>
+		<td><p th:text="*{usernm}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">社員番号</td>
+		<td><p th:text="*{employeeno}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">部署名</td>
+		<td><p th:text="*{departmentnm}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">役職</td>
+		<td><p th:text="*{positionnm}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">入社年月</td>
+		<td><p th:text="*{joined}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">年齢</td>
+		<td><p th:text="*{age}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">郵便番号</td>
+		<td><p th:text="*{postalcd}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">住所</td>
+		<td><p th:text="*{address}"></p></td>
+	</tr>
+	<tr>
+		<td class="item">電話番号</td>
+		<td><p th:text="*{telno}"></p></td>
+	</tr>
+</table>
+
+<div th:include="parts/footer"></div>

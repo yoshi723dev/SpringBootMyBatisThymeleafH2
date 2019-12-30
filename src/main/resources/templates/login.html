@@ -1,0 +1,23 @@
+<div th:include="parts/header"></div>
+
+<h2>ログインページ</h2>
+
+<form method="POST" th:action="@{/login}" th:object="${loginForm}">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<tr>
+				<td>ログインID</td>
+				<td><input type="text" name="userId" th:field="*{userId}" /></td>
+			</tr>
+			<tr>
+				<td>パスワード</td>
+				<td><input type="password" name="passWd" th:field="*{passWd}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="ログイン" /></td>
+			</tr>
+		</table>
+	</div>
+</form>
+
+<div th:include="parts/footer"></div>

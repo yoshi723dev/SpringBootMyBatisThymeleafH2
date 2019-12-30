@@ -1,0 +1,53 @@
+<div th:include="parts/header"></div>
+
+<div th:include="parts/menu"></div>
+
+<form method="POST" action="/compleate">
+	<table class="info" th:object="${registForm}" >
+		<tr>
+			<td class="item">ユーザID</td>
+			<td><p th:text="*{userid}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">パスワード</td>
+			<td><p th:text="*{password}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">社員名</td>
+			<td><p th:text="*{usernm}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">部署名</td>
+			<td><p th:text="*{departmentnm}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">役職</td>
+			<td><p th:text="*{positionnm}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">入社年月</td>
+			<td><p th:text="*{joined}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">年齢</td>
+			<td><p th:text="*{age}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">郵便番号</td>
+			<td><p th:text="*{postalcd}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">住所</td>
+			<td><p th:text="*{address}"></p></td>
+		</tr>
+		<tr>
+			<td class="item">電話番号</td>
+			<td><p th:text="*{telno}"></p></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="登録"/></td>
+		</tr>
+	</table>
+</form>
+
+<div th:include="parts/footer"></div>

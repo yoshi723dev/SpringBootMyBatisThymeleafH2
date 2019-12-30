@@ -1,0 +1,45 @@
+<div th:include="parts/header"></div>
+
+<div th:include="parts/menu"></div>
+
+<form method="GET" action="/regist">
+	<div class="page">
+		<input type="submit" value="社員登録" />
+		<p th:text="'件数：' + ${max} + '件'"></p>
+		<p th:text="${start} + '件目から' + ${end} + '件目を表示'" class="cnt_info"></p>
+		<ul>
+			<li th:each="link, stat : ${listPage}">
+				<a th:href="'/search?start=' + ${link}"><p th:text="${stat.count}"></p></a>
+			</li>
+		</ul>
+	</div>
+</form>
+
+<table class="search">
+	<thead>
+		<td>社員番号</div>
+		<td>ユーザID</div>
+		<td>社員名</div>
+		<td>部署名</div>
+		<td>役職</div>
+		<td>入社年月</div>
+		<td>年齢</div>
+		<td>郵便番号</div>
+		<td>住所</div>
+		<td>電話番号</div>
+	</thead>
+	<tr th:each="user : ${listUser}">
+		<td><p th:text="*{user.employeeno}"></p></div>
+		<td><p th:text="*{user.userid}"></p></div>
+		<td><p th:text="*{user.usernm}"></p></div>
+		<td><p th:text="*{user.departmentnm}"></p></div>
+		<td><p th:text="*{user.positionnm}"></p></div>
+		<td><p th:text="*{user.joined}"></p></div>
+		<td><p th:text="*{user.age}"></p></div>
+		<td><p th:text="*{user.postalcd}"></p></div>
+		<td><p th:text="*{user.address}"></p></div>
+		<td><p th:text="*{user.telno}"></p></div>
+	</tr>
+</table>
+
+<div th:include="parts/footer"></div>

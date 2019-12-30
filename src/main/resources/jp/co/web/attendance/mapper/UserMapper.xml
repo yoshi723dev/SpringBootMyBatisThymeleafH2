@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.web.attendance.mapper.UserMapper">
+    <select id="findOne" resultType="jp.co.web.attendance.domain.User">
+		select
+			a.USERID, a.USERNM, a.PASSWORD, a.EMPLOYEENO, c.DEPARTMENTNM,
+			b.POSITIONNM, a.JOINED, a.AGE, a.POSTALCD, a.ADDRESS, a.TELNO
+		from M_USER a
+		left join M_POSITION b
+			on a.POSITIONCD = b.POSITIONCD
+		left join M_DEPARTMENT c
+			on a.DEPARTMENTCD = c.DEPARTMENTCD
+		where a.USERID = #{userId} and a.PASSWORD = #{passWd}
+	</select>
+    <select id="find" resultType="jp.co.web.attendance.domain.User">
+		select
+			a.USERID, a.USERNM, a.PASSWORD, a.EMPLOYEENO, c.DEPARTMENTNM,
+			b.POSITIONNM, a.JOINED, a.AGE, a.POSTALCD, a.ADDRESS, a.TELNO
+		from M_USER a
+		left join M_POSITION b
+			on a.POSITIONCD = b.POSITIONCD
+		left join M_DEPARTMENT c
+			on a.DEPARTMENTCD = c.DEPARTMENTCD
+		order by a.EMPLOYEENO
+		<if test="limit != null">
+			limit #{limit}
+		</if>
+		<if test="offset != null">
+			offset #{offset}
+		</if>
+	</select>
+    <select id="findAllCount" resultType="_int">
+		select count(*) as cnt
+		from M_USER a
+		left join M_POSITION b
+			on a.POSITIONCD = b.POSITIONCD
+		left join M_DEPARTMENT c
+			on a.DEPARTMENTCD = c.DEPARTMENTCD
+	</select>
+	<insert id="insert">
+		insert into M_USER (USERID, USERNM, PASSWORD, DEPARTMENTCD, POSITIONCD, JOINED, AGE, POSTALCD, ADDRESS, TELNO)
+		values(
+			 #{form.userid}
+			,#{form.usernm}
+			,#{form.password}
+			,#{form.departmentcd}
+			,#{form.positioncd}
+			,#{form.joined}
+			,#{form.age}
+			,#{form.postalcd}
+			,#{form.address}
+			,#{form.telno}
+		)
+	</insert>
+</mapper>
