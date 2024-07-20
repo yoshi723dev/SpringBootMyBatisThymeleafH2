@@ -45,6 +45,7 @@ public class RegistController {
 
 		model.addObject("listPosition", service.getListPosition());
 		model.addObject("listDepartment", service.getListDepartment());
+		model.addObject("form", form);
 		model.setViewName("regist");
 
 		logger.info(this.getClass().getName() + " regist end");
@@ -63,6 +64,7 @@ public class RegistController {
 			// validationメッセージがredirectだと渡せない
 			model.addObject("listPosition", service.getListPosition());
 			model.addObject("listDepartment", service.getListDepartment());
+			model.addObject("form", form);
 			model.setViewName("regist");
 
 			return model;

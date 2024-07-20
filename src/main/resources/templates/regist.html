@@ -9,19 +9,20 @@
 			<p th:text="${'・' + error.message}"></p>
 		</div>
 	</div>
-
+	
+	<div th:object="${form}">
 	<table class="info">
 		<tr>
 			<td class="item">ユーザID</td>
-			<td><input type="text" class="form-control" name="userid" /></td>
+			<td><input type="text" class="form-control" name="userid" th:value="*{userid}" /></td>
 		</tr>
 		<tr>
 			<td class="item">パスワード</td>
-			<td><input type="password" class="form-control" name="password" /></td>
+			<td><input type="password" class="form-control" name="password" th:value="*{password}"/></td>
 		</tr>
 		<tr>
 			<td class="item">社員名</td>
-			<td><input type="text" class="form-control" name="usernm" /></td>
+			<td><input type="text" class="form-control" name="usernm" th:value="*{usernm}" /></td>
 		</tr>
 		<tr>
 			<td class="item">部署名</td>
@@ -40,15 +41,15 @@
 			</td>			</tr>
 		<tr>
 			<td class="item">入社年月</td>
-			<td><input type="text" class="form-control" name="joined" /></td>
+			<td><input type="text" class="form-control" name="joined" th:value="*{joined}" /></td>
 		</tr>
 		<tr>
 			<td class="item">年齢</td>
-			<td><input type="text" class="form-control" name="age" /></td>
+			<td><input type="text" class="form-control" name="age" th:value="*{age}" /></td>
 		</tr>
 		<tr>
 			<td class="item">郵便番号</td>
-			<td><input type="text" class="form-control" name="postalcd" /><div id="post_serarch">郵便番号から住所を検索</div></td>
+			<td><input type="text" class="form-control" name="postalcd" th:value="*{postalcd}" /><div id="post_serarch">郵便番号から住所を検索</div></td>
 		</tr>
 		<tr>
 			<td class="item">都道府県</td>
@@ -107,16 +108,17 @@
 		</tr>
 		<tr>
 			<td class="item">都道府県以降</td>
-			<td><input type="text" class="form-control" name="address2" /></td>
+			<td><input type="text" class="form-control" name="address2" th:value="*{address2}" /></td>
 		</tr>
 		<tr>
 			<td class="item">電話番号</td>
-			<td><input type="text" class="form-control" name="telno" /></td>
+			<td><input type="text" class="form-control" name="telno" th:value="*{telno}" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" class="btn btn-warning" value="次へ"/></td>
 		</tr>
 	</table>
+	</div>
 </form>
 
 <div th:include="parts/footer"></div>
